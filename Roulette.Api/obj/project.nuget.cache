@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "EhUEyZXqCpecmM6/ZBW2fnMNpXiv6DaBdHFBFw1elhD0cgwZXdfeZ7Bqx5XySf2D1z0ITQ02Cl0gFXhNe29aOw==",
+  "success": true,
+  "projectFilePath": "C:\\WLPEREZ\\Proyectos\\Roulette\\Roulette.Api\\Roulette.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Wilfredo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Wilfredo\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Wilfredo\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\Wilfredo\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\Wilfredo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\Wilfredo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
