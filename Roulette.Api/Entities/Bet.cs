@@ -3,7 +3,7 @@ using System;
 
 namespace Roulette.Api.Entities
 {
-    public record Bet
+    public class Bet
     {
         public Guid UserId { get; init;}
         public int Number { get; init;}

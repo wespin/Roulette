@@ -11,6 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Driver;
+using Roulette.Api.Repositories;
+using Roulette.Api.Settings;
 
 namespace Roulette.Api
 {
@@ -26,8 +32,16 @@ namespace Roulette.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
+            services.AddSingleton<IMongoClient>(ServiceProvider => 
+            {
+                var settings  = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+                return new MongoClient(settings.ConnectionString);
+            });
+            services.AddSingleton<IIRoulettesRepository, MongoDbRolulettesRepository>();
+            services.AddControllers(p=> p.SuppressAsyncSuffixInActionNames=false);
 
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Roulette.Api", Version = "v1" });
