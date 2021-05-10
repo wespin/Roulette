@@ -94,10 +94,8 @@ namespace Roulette.Api.Controllers
             }
             if(!rouletteWheel.Result.IsOpen)
             {
-                
+                throw new InvalidOperationException("Invalid Operation. Roulette Wheel is Close.");
             }  
-     //       ColorsTypesEnum myColors;
-      //      Enum.TryParse("Active", out myColors);     
 
             Bet bet = new()
             {

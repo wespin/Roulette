@@ -42,23 +42,18 @@ namespace Roulette.Api.Repositories
         public async Task CloseRouletteWheelAsync(RouletteWheel rouletteWheel)
         {
             var filter = filterBuilder.Eq(existingroulettewheel => existingroulettewheel.Id, rouletteWheel.Id);
-            // Random randObj = new Random();
-            // int randNumber = randObj.Next(36);
-            // string winColor = "black";
-            // if(randNumber%2 == 0){
-            //    winColor = "red";
-            // }
-            // var betsRouletteWheel = repository.GetBetsAsync(id); 
-            // var betFilter = Builders<BsonDocument>.Filter.ElemMatch<BsonValue>(
-            //     "scores", new BsonDocument { { "type", "exam" },
-            //     { "score", new BsonDocument { { "$gte", 95 } } }
-            //     });
-            //     var betsPos = rouletteWheelsCollection.Find(betFilter).ToList();
+            Random randObj = new Random();
+            int randNumber = randObj.Next(36);
+            string winColor = "black";
+            if(randNumber%2 == 0){
+               winColor = "red";
+            }
+             RouletteWheel updatedItem = rouletteWheel with {
+                WinNumber = randNumber,
+                WinColor = winColor
+            };
 
-            // var filter2 = filterBuilder.ElemMatch<RouletteWheel>(x => x.Bets);
-            // var aliasFilterAll = filterBuilder.All(u => u.Bets, new { }); 
-
-            await rouletteWheelsCollection.ReplaceOneAsync(filter, rouletteWheel);
+            await rouletteWheelsCollection.ReplaceOneAsync(filter, updatedItem);
         }
 
 
